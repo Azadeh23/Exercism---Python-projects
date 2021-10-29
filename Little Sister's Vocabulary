@@ -1,0 +1,51 @@
+def add_prefix_un(word):
+    """function returns word with added prefix"""
+    prefix = "un"
+    with_prefix = prefix + word
+    return with_prefix
+
+
+WORD_PREFIX = add_prefix_un("Happy")
+print(WORD_PREFIX)
+
+
+def make_word_groups(vocab_words):
+    """function returns list of words with prefix, then added prefix"""
+    prefix = vocab_words[0]
+    whole_words = vocab_words[1:]
+    new_list = [prefix]
+    for i in range(len(whole_words)):
+        new_list.append(prefix + whole_words[i])
+
+    words = " :: ".join(new_list)
+    return words
+
+
+MAKING_WORDS = make_word_groups(["en", "joy", "close", "lighten", "bitter", "fold"])
+print(MAKING_WORDS)
+
+
+def remove_suffix_ness(word):
+    """function removes ending and replaces end letter with y if necessary"""
+    root = word[: -4]
+    if root[-1] == "i":
+        return root[: -1] + "y" #the return exits automatically the function.
+    return root
+
+
+REMOVE_WORD = remove_suffix_ness("Sadness")
+print(REMOVE_WORD)
+
+
+def noun_to_verb(sentence, index):
+    """function turns noun to verb by adding en"""
+    pick_word = sentence.split()[index]
+    ending = "en"
+
+    if pick_word[-1] == '.':
+        return pick_word[: -1] + ending
+    return pick_word + ending
+
+
+verb = noun_to_verb('It gott dark as the sun is dark',1 )
+print(verb)
