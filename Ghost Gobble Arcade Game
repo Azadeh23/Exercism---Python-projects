@@ -1,0 +1,34 @@
+def eat_ghost(power_pellet_active, touching_ghost):
+    """function returns True if both power_pellet_active and touching_ghost is are True
+    """
+    if power_pellet_active and touching_ghost:
+        return True
+    return False
+
+
+def score(touching_power_pellet, touching_dot):
+    """function returns True if touching a dot or touching power pellet
+     """
+    if touching_power_pellet or touching_dot:
+        return True
+    return False
+
+
+def lose(power_pellet_active, touching_ghost):
+    """function returns True only if touching_ghost is True and power pellet is false
+     """
+    if not power_pellet_active and touching_ghost:
+        return True
+    return False
+
+
+
+def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
+    """
+    returns True if pacman has eaten all the dots and has not return False for function lose()
+    """
+    has_lost = lose(power_pellet_active, touching_ghost)
+    if not has_lost and has_eaten_all_dots:
+        return True
+    return False
+
