@@ -1,0 +1,11 @@
+import datetime
+
+
+def add(year, month, day, hours, minutes, seconds):
+    """ function returns new_moment after a gigasecond has passed """
+
+    a_datetime = datetime.datetime(year, month, day, hours, minutes, seconds)
+    added_seconds = datetime.timedelta(0,1000000000)
+    new_datetime = a_datetime + added_seconds
+
+    return new_datetime
