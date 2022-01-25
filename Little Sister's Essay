@@ -1,0 +1,36 @@
+import string
+
+
+def capitalize_title(title):
+    """
+    Function returns  str title string in title case (first letters capitalized)
+    """
+    return title.title()
+
+
+def check_sentence_ending(sentence):
+    """
+    Function returns bool True if punctuated correctly with period, False otherwise.
+    """
+
+    return "." in sentence
+
+
+
+def clean_up_spacing(sentence):
+    """
+    Function returns str a sentence that has been cleaned of leading and trailing space characters.
+    """
+
+    return sentence.strip()
+
+
+
+def replace_word_choice(sentence, old_word, new_word):
+    """
+    Function returns input sentence with new words in place of old words
+    """
+
+    if old_word in sentence:
+        sentence =sentence.replace(old_word, new_word)
+    return sentence
