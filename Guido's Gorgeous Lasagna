@@ -1,0 +1,19 @@
+EXPECTED_BAKE_TIME = 40
+def bake_time_remaining(time_in_oven):
+    """
+	returns remaining baketime
+    takes the number of minutes the lasagne has been baking as an argument
+    """
+    time_left = EXPECTED_BAKE_TIME - time_in_oven
+    return time_left
+
+bake = bake_time_remaining(30)
+print(bake)
+
+def preparation_time_in_minutes(layers):
+    """
+	returns the perperation time
+    takes the number of layers as an arguement
+    """
+    time = layers * 2
+    return time
