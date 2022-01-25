@@ -1,0 +1,70 @@
+def get_rounds(number):
+    """
+    function takes a round number and returns a list with the round number and the two 
+    following round numbers
+    """
+
+    return [number, number+1, number+2]
+
+
+def concatenate_rounds(rounds_1, rounds_2):
+    """
+    function takes two lists and returns a single list
+    """
+
+    return rounds_1+rounds_2
+
+
+def list_contains_round(rounds, number):
+    """
+    function takes a list of rounds played and a round number and returns bool True False 
+    if the round is in the round list
+    """
+
+    return number in rounds
+       
+            
+
+
+def card_average(hand):
+    """
+    Function takes as an argument hand returns the average 
+    """
+
+   
+    return sum(hand)/len(hand)
+
+
+
+def approx_average_is_average(hand):
+    """
+      function takes a hand and compares if the average of the first and last card and the middle card is the same as the hand average    
+    """
+    average_card = card_average(hand)
+    first_last_average = card_average([hand[0], hand[-1]])
+    median = len(hand)/ 2
+    index = round(median)
+    hand_index = (hand[index])
+    return average_card == first_last_average or average_card == hand_index
+    
+
+def average_even_is_average_odd(hand):
+    """
+    function takes a hand and compares if the average at the even indexes is the same as the average at the odd indexes
+     """
+
+
+    even_indexes = card_average(hand[::2])
+    odd_indexes = card_average(hand[1::2])
+    return even_indexes == odd_indexes
+
+
+def maybe_double_last(hand):
+    """
+    functions checks if the last card is a jack (11) if so doubles it 
+    """
+    if hand[-1] == 11:
+        hand[-1] = hand[-1]*2
+        return hand
+    return hand
+    
