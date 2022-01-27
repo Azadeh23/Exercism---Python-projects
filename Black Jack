@@ -1,0 +1,71 @@
+def value_of_card(card):
+    """Function returns the numerical value of the str passed in card"""
+    
+    if card in "QKJ":
+        return 10
+    if card == "A":
+        return 1
+    return int(card)
+    
+
+
+def higher_card(card_one, card_two):
+    """Determine which card has a higher value in the hand """
+
+    if value_of_card(card_one)> value_of_card(card_two):
+        return card_one
+    if value_of_card(card_one)< value_of_card(card_two):   
+        return card_two
+    if value_of_card(card_one) == value_of_card(card_two):
+        return card_one, card_two
+    
+    
+
+    
+
+
+def value_of_ace(card_one, card_two):
+    """Calculate the most advantageous value for the ace card """
+
+    A_1 = 1
+    A_11 = 11
+    
+    if value_of_card(card_one) + value_of_card(card_two)  > 10:
+        return A_1
+    if value_of_card(card_one) + value_of_card(card_two)  <= 10:
+        return A_11
+
+  
+def is_blackjack(card_one, card_two):
+    """Determine if the hand is a 'natural' or 'blackjack'"""
+    ace = 'A'
+    ten_card = ['10', 'J','K', 'Q']
+
+    if card_one in ace or card_two in ace:
+        if card_one in ten_card or card_two in ten_card:
+            return True
+    return False
+        
+
+    
+    
+
+def can_split_pairs(card_one, card_two):
+    """Determine if a player can split their hand into two hands"""
+    cards = ['J','Q','K','10']
+
+    if card_one == card_two or card_one and card_two in cards:
+        return True
+    return False
+
+    
+
+
+def can_double_down(card_one, card_two):
+    """Determine if a blackjack player can place a double down bet"""
+
+    totals = [9, 10, 11]
+    card_total = value_of_card(card_one) + value_of_card(card_two)
+    if card_total in totals:
+        return True
+    return False
