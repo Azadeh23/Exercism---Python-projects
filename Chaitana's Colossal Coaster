@@ -1,0 +1,60 @@
+def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
+    """ functions returns the updated queue the person is added to"""
+    
+    if ticket_type == 1 :
+        
+        new_express_queue = express_queue.copy()
+        new_express_queue.append(person_name)
+        return new_express_queue
+    else:
+        new_normal_queue = normal_queue.copy()
+        new_normal_queue.append(person_name)
+        return new_normal_queue
+
+
+def find_my_friend(queue, friend_name):
+    """return index in list where friend was found"""
+    
+    return queue.index(friend_name)
+
+
+def add_me_with_my_friends(queue, index, person_name):
+    """ funtion returns: list - queue updated with new name.
+    """
+
+    new_queue = queue.copy()
+    new_queue.insert(index, person_name)
+    return new_queue
+    
+
+
+def remove_the_mean_person(queue, person_name):
+    """"
+    functions returns the list - queue update with the mean persons name removed.
+    """
+    new_queue = queue.copy()
+    new_queue.remove(person_name)
+    return new_queue
+
+
+def how_many_namefellows(queue, person_name):
+    """function returns int - the number of times the name appears in the queue"""
+    
+    return int(queue.count(person_name))
+
+
+def remove_the_last_person(queue):
+    """
+    function returns : str - name that has been removed from the end of the queue.
+    """
+    
+    return queue.pop()
+    
+
+
+def sorted_names(queue):
+    """function returns list - copy of the queue in alphabetical order.
+    """
+    copied_list_queue = queue.copy()
+    return sorted(copied_list_queue)
+    
