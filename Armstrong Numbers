@@ -1,0 +1,12 @@
+def is_armstrong_number(number):
+
+    if len(str(number)) > 1:
+        result = 0
+        for item in str(number):
+            result += int(item)**len(str(number))
+            print(result)
+        if result == number:
+            return True
+        else:
+                return False
+    return True
